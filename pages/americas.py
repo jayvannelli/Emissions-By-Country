@@ -1,4 +1,5 @@
 import streamlit as st
+
 from src.data import get_data
 from src.settings import CARIBBEAN, CENTRAL_AMERICA, SOUTH_AMERICA
 
@@ -17,7 +18,16 @@ def main():
         caribbean_selection = st.selectbox("Select country", options=CARIBBEAN)
 
         caribbean_df = df.loc[df['Country'] == caribbean_selection]
-        st.dataframe(caribbean_df)
+        st.bar_chart(data=caribbean_df, x="Year", y="Total")
+
+        caribbean_multiple_selections = st.multiselect(label="Select countries",
+                                                       options=CARIBBEAN,
+                                                       default=CARIBBEAN[:5])
+
+        if len(caribbean_multiple_selections) >= 1:
+            caribbean_query = df.query('Country == @caribbean_multiple_selections')
+
+            st.dataframe(caribbean_query)
 
     with central_america_tab:
         st.subheader("Central America")
