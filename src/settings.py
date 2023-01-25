@@ -19,3 +19,28 @@ SOUTH_AMERICA: list[str] = [
     "Ecuador", "French Guiana", "Guyana", "Paraguay", "Peru",
     "Suriname", "Uruguay", "Venezuela"
 ]
+
+NORTHERN_EUROPE: list[str] = [
+    "Denmark", "Estonia", "Finland", "Greenland",
+    "Iceland", "Ireland", "Latvia", "Lithuania",
+    "Norway", "Sweden", "United Kingdom",
+]
+
+WESTERN_EUROPE: list[str] = [
+    "Austria", "Belgium", "France", "Germany",
+    "Liechtenstein", "Luxembourg", "Netherlands",
+    "Switzerland",
+]
+
+EASTERN_EUROPE: list[str] = [
+    "Belarus", "Bulgaria", "Hungary", "Moldova",
+    "Poland", "Romania", "Russia", "Slovakia"
+    "Ukraine",
+]
+
+SOUTHERN_EUROPE: list[str] = [
+    "Albania", "Andorra", "Bosnia and Herzegovina",
+    "Croatia", "Cyprus", "Greece", "Italy", "Kosovo",
+    "North Macedonia", "Malta", "Monaco", "Montenegro",
+    "Portugal", "Serbia", "Slovenia", "Spain", "Turkey",
+]
