@@ -1,3 +1,4 @@
+# --- AMERICAS ---
 
 CARIBBEAN: list[str] = [
     "Anguilla", "Antigua and Barbuda", "Aruba", "Bahamas",
@@ -19,6 +20,8 @@ SOUTH_AMERICA: list[str] = [
     "Ecuador", "French Guiana", "Guyana", "Paraguay", "Peru",
     "Suriname", "Uruguay", "Venezuela"
 ]
+
+# --- EUROPE ---
 
 NORTHERN_EUROPE: list[str] = [
     "Denmark", "Estonia", "Finland", "Greenland",
@@ -43,4 +46,34 @@ SOUTHERN_EUROPE: list[str] = [
     "Croatia", "Cyprus", "Greece", "Italy", "Kosovo",
     "North Macedonia", "Malta", "Monaco", "Montenegro",
     "Portugal", "Serbia", "Slovenia", "Spain", "Turkey",
+]
+
+# --- ASIA ---
+
+WESTERN_ASIA: list[str] = [
+    "Armenia", "Azerbaijan", "Bahrain", "Cyprus",
+    "Georgia", "Iran", "Iraq", "Israel", "Jordan",
+    'Kuwait', "Lebanon", "Oman", "Qatar", "Saudi Arabia",
+    "Syria", "Turkey", "United Arab Emirates", "Yemen"
+]
+
+CENTRAL_ASIA: list[str] = [
+    "Afghanistan", "Kazakhstan", "Kyrgyzstan",
+    "Tajikistan", "Turkmenistan", "Uzbekistan"
+]
+
+EAST_ASIA: list[str] = [
+    "China", "Japan", "North Korea", "South Korea",
+    "Mongolia", "Taiwan"
+]
+
+SOUTH_ASIA: list[str] = [
+    "Bangladesh", "Bhutan", "India", "Maldives",
+    "Nepal", "Pakistan", "Sri Lanka"
+]
+
+SOUTHEAST_ASIA: list[str] = [
+    "Brunei Darussalam", "Cambodia", "Indonesia",
+    "Malaysia", "Myanmar", "Philippines", "Singapore",
+    "Thailand"
 ]
