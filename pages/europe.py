@@ -10,6 +10,7 @@ from src.settings import (
 
 
 def main():
+    st.set_page_config(page_title="Europe", layout="wide")
     st.title("Europe")
 
     df = get_data()
@@ -23,6 +24,20 @@ def main():
 
         east_europe_selection = st.selectbox("Select country", options=EASTERN_EUROPE)
         east_europe_df = df.loc[df['Country'] == east_europe_selection]
+
+        c1, c2, c3, c4 = st.columns(4)
+        with c1:
+            st.subheader("Coal")
+            st.bar_chart(east_europe_df, x="Year", y="Coal")
+        with c2:
+            st.subheader("Oil")
+            st.bar_chart(east_europe_df, x="Year", y="Oil")
+        with c3:
+            st.subheader("Gas")
+            st.bar_chart(east_europe_df, x="Year", y="Gas")
+        with c4:
+            st.subheader("Cement")
+            st.bar_chart(east_europe_df, x="Year", y="Cement")
 
         st.dataframe(east_europe_df)
 
