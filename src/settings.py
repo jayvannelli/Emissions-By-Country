@@ -7,18 +7,18 @@ CARIBBEAN: list[str] = [
     "Grenada", "Guadeloupe", "Haiti", "Jamaica", "Martinique",
     "Montserrat", "Puerto Rico", "Saint Kitts and Nevis",
     "Saint Lucia", "Saint Vincent and the Grenadines",
-    "Trinidad and Tobago"
+    "Trinidad and Tobago",
 ]
 
 CENTRAL_AMERICA: list[str] = [
     "Belize", "Costa Rica", "El Salvador", "Guatemala",
-    "Honduras", "Nicaragua", "Panama"
+    "Honduras", "Nicaragua", "Panama",
 ]
 
 SOUTH_AMERICA: list[str] = [
     "Argentina", "Bolivia", "Brazil", "Chile", "Colombia",
     "Ecuador", "French Guiana", "Guyana", "Paraguay", "Peru",
-    "Suriname", "Uruguay", "Venezuela"
+    "Suriname", "Uruguay", "Venezuela",
 ]
 
 # --- EUROPE ---
@@ -37,7 +37,7 @@ WESTERN_EUROPE: list[str] = [
 
 EASTERN_EUROPE: list[str] = [
     "Belarus", "Bulgaria", "Hungary", "Moldova",
-    "Poland", "Romania", "Russia", "Slovakia"
+    "Poland", "Romania", "Russia", "Slovakia",
     "Ukraine",
 ]
 
@@ -54,26 +54,26 @@ WESTERN_ASIA: list[str] = [
     "Armenia", "Azerbaijan", "Bahrain", "Cyprus",
     "Georgia", "Iran", "Iraq", "Israel", "Jordan",
     'Kuwait', "Lebanon", "Oman", "Qatar", "Saudi Arabia",
-    "Syria", "Turkey", "United Arab Emirates", "Yemen"
+    "Syria", "Turkey", "United Arab Emirates", "Yemen",
 ]
 
 CENTRAL_ASIA: list[str] = [
     "Afghanistan", "Kazakhstan", "Kyrgyzstan",
-    "Tajikistan", "Turkmenistan", "Uzbekistan"
+    "Tajikistan", "Turkmenistan", "Uzbekistan",
 ]
 
 EAST_ASIA: list[str] = [
     "China", "Japan", "North Korea", "South Korea",
-    "Mongolia", "Taiwan"
+    "Mongolia", "Taiwan",
 ]
 
 SOUTH_ASIA: list[str] = [
     "Bangladesh", "Bhutan", "India", "Maldives",
-    "Nepal", "Pakistan", "Sri Lanka"
+    "Nepal", "Pakistan", "Sri Lanka",
 ]
 
 SOUTHEAST_ASIA: list[str] = [
     "Brunei Darussalam", "Cambodia", "Indonesia",
     "Malaysia", "Myanmar", "Philippines", "Singapore",
-    "Thailand"
+    "Thailand",
 ]
