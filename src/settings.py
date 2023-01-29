@@ -1,3 +1,9 @@
+# --- EMISSION TYPES ---
+VALID_VALUE_SELECTIONS: list[str] = [
+    "Coal", "Oil", "Gas", "Cement", "Flaring", "Other",
+    "Per Capita", "Total"
+]
+
 # --- AMERICAS ---
 
 CARIBBEAN: list[str] = [

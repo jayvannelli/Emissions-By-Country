@@ -2,6 +2,7 @@ import streamlit as st
 
 from src.data import get_data
 from src.settings import (
+    VALID_VALUE_SELECTIONS,
     CENTRAL_ASIA,
     EAST_ASIA,
     SOUTH_ASIA,
@@ -25,6 +26,7 @@ def main():
         central_asia_selection = st.selectbox("Select country", options=CENTRAL_ASIA)
         central_asia_df = df.loc[df['Country'] == central_asia_selection]
 
+        st.bar_chart(central_asia_df, x="Year", y="Coal")
         st.dataframe(central_asia_df)
 
     with east_asia_tab:
@@ -32,6 +34,14 @@ def main():
 
         east_asia_selection = st.selectbox("Select country", options=EAST_ASIA)
         east_asia_df = df.loc[df['Country'] == east_asia_selection]
+
+        multi_value_selections = st.multiselect(label="Select value(s) to display:",
+                                                options=VALID_VALUE_SELECTIONS)
+
+        if len(multi_value_selections) != 0:
+            st.bar_chart(east_asia_df, x="Year", y=multi_value_selections)
+        else:
+            st.info("Please select one or more value to display on bar chart.")
 
         st.dataframe(east_asia_df)
 
