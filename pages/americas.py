@@ -1,7 +1,12 @@
 import streamlit as st
 
 from src.data import get_data
-from src.settings import CARIBBEAN, CENTRAL_AMERICA, SOUTH_AMERICA
+from src.settings import (
+    VALID_VALUE_SELECTIONS,
+    CARIBBEAN,
+    CENTRAL_AMERICA,
+    SOUTH_AMERICA,
+)
 
 
 def main():
@@ -45,10 +50,34 @@ def main():
 
     with north_america_tab:
         st.subheader("North America")
-        north_america_selection = st.selectbox("Select country", options=["Canada", "Mexico", "USA"])
+        st.write("---")
 
-        north_america_df = df.loc[df['Country'] == north_america_selection]
-        st.dataframe(north_america_df)
+        # DataFrame for each country in North America.
+        usa_df = df.loc[df['Country'] == 'USA']
+        canada_df = df.loc[df['Country'] == 'Canada']
+        mexico_df = df.loc[df['Country'] == 'Mexico']
+
+        st.subheader("United States of America")
+
+        left_column, right_column = st.columns([3, 1])
+        with left_column:
+            usa_low_year, usa_high_year = st.select_slider(label="Select time-frame",
+                                                           options=usa_df['Year'],
+                                                           value=(usa_df['Year'].min(), usa_df['Year'].max()))
+        with right_column:
+            usa_emission_type = st.selectbox(label="Select value to display",
+                                             options=VALID_VALUE_SELECTIONS)
+
+        usa_df_query = usa_df.query("Year >= @usa_low_year and Year <= @usa_high_year")
+        st.bar_chart(usa_df_query, x="Year", y=usa_emission_type)
+
+        st.dataframe(usa_df)
+
+        st.subheader("Canada")
+        st.dataframe(canada_df)
+
+        st.subheader("Mexico")
+        st.dataframe(mexico_df)
 
 
 if __name__ == "__main__":
