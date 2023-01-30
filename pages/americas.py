@@ -1,5 +1,6 @@
 import streamlit as st
 
+from streamlit_extras.colored_header import colored_header
 from src.data import get_data
 from src.settings import (
     YEAR_DOUBLE_SELECT_SLIDER_DEFAULT,
@@ -58,7 +59,7 @@ def main():
         canada_df = df.loc[df['Country'] == 'Canada']
         mexico_df = df.loc[df['Country'] == 'Mexico']
 
-        st.subheader("United States of America")
+        colored_header("United States of America", description="", color_name="light-blue-70")
 
         usa_left_col, usa_right_col = st.columns([3, 1])
         with usa_left_col:
@@ -77,9 +78,10 @@ def main():
         with st.expander("Display United States DataFrame"):
             st.dataframe(usa_df)
 
-        st.subheader("Canada")
+        colored_header("Canada", description="", color_name="red-70")
 
         canada_left_col, canada_right_col = st.columns([3, 1])
+
         with canada_left_col:
             canada_low_year, canada_high_year = st.select_slider(label="Select time-frame",
                                                                  options=canada_df['Year'],
@@ -96,7 +98,7 @@ def main():
         with st.expander("Display Canada DataFrame"):
             st.dataframe(canada_df)
 
-        st.subheader("Mexico")
+        colored_header("Mexico", description="", color_name="green-70")
 
         mexico_left_col, mexico_right_col = st.columns([3, 1])
         with mexico_left_col:
