@@ -83,3 +83,6 @@ SOUTHEAST_ASIA: list[str] = [
     "Malaysia", "Myanmar", "Philippines", "Singapore",
     "Thailand",
 ]
+
+# --- STREAMLIT SLIDER ---
+YEAR_DOUBLE_SELECT_SLIDER_DEFAULT = (1750, 2021)

@@ -12,7 +12,6 @@ def main():
 
     st.bar_chart(country_df, x="Year", y="Total")
     st.dataframe(country_df)
-    # st.dataframe(df)
 
 
 if __name__ == "__main__":

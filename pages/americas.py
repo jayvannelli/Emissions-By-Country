@@ -2,6 +2,7 @@ import streamlit as st
 
 from src.data import get_data
 from src.settings import (
+    YEAR_DOUBLE_SELECT_SLIDER_DEFAULT,
     VALID_VALUE_SELECTIONS,
     CARIBBEAN,
     CENTRAL_AMERICA,
@@ -10,6 +11,7 @@ from src.settings import (
 
 
 def main():
+    st.set_page_config("America", layout="centered")
     st.title("Americas")
 
     df = get_data()
@@ -31,7 +33,6 @@ def main():
 
         if len(caribbean_multiple_selections) >= 1:
             caribbean_query = df.query('Country == @caribbean_multiple_selections')
-
             st.dataframe(caribbean_query)
 
     with central_america_tab:
@@ -59,25 +60,60 @@ def main():
 
         st.subheader("United States of America")
 
-        left_column, right_column = st.columns([3, 1])
-        with left_column:
+        usa_left_col, usa_right_col = st.columns([3, 1])
+        with usa_left_col:
             usa_low_year, usa_high_year = st.select_slider(label="Select time-frame",
                                                            options=usa_df['Year'],
-                                                           value=(usa_df['Year'].min(), usa_df['Year'].max()))
-        with right_column:
+                                                           value=YEAR_DOUBLE_SELECT_SLIDER_DEFAULT,
+                                                           key="usa_year_selections")
+        with usa_right_col:
             usa_emission_type = st.selectbox(label="Select value to display",
-                                             options=VALID_VALUE_SELECTIONS)
+                                             options=VALID_VALUE_SELECTIONS,
+                                             key="usa_value_selections")
 
         usa_df_query = usa_df.query("Year >= @usa_low_year and Year <= @usa_high_year")
         st.bar_chart(usa_df_query, x="Year", y=usa_emission_type)
 
-        st.dataframe(usa_df)
+        with st.expander("Display United States DataFrame"):
+            st.dataframe(usa_df)
 
         st.subheader("Canada")
-        st.dataframe(canada_df)
+
+        canada_left_col, canada_right_col = st.columns([3, 1])
+        with canada_left_col:
+            canada_low_year, canada_high_year = st.select_slider(label="Select time-frame",
+                                                                 options=canada_df['Year'],
+                                                                 value=YEAR_DOUBLE_SELECT_SLIDER_DEFAULT,
+                                                                 key="canada_year_selections")
+        with canada_right_col:
+            canada_emission_type = st.selectbox(label="Select value to display",
+                                                options=VALID_VALUE_SELECTIONS,
+                                                key="canada_value_selections")
+
+        canada_df_query = canada_df.query("Year >= @canada_low_year and Year <= @canada_high_year")
+        st.bar_chart(canada_df_query, x="Year", y=canada_emission_type)
+
+        with st.expander("Display Canada DataFrame"):
+            st.dataframe(canada_df)
 
         st.subheader("Mexico")
-        st.dataframe(mexico_df)
+
+        mexico_left_col, mexico_right_col = st.columns([3, 1])
+        with mexico_left_col:
+            mexico_low_year, mexico_high_year = st.select_slider(label="Select time-frame",
+                                                                 options=mexico_df['Year'],
+                                                                 value=YEAR_DOUBLE_SELECT_SLIDER_DEFAULT,
+                                                                 key="mexico_year_selections")
+        with mexico_right_col:
+            mexico_emission_type = st.selectbox(label="Select value to display",
+                                                options=VALID_VALUE_SELECTIONS,
+                                                key="mexico_value_selections")
+
+        mexico_df_query = mexico_df.query("Year >= @mexico_low_year and Year <= @mexico_high_year")
+        st.bar_chart(mexico_df_query, x="Year", y=mexico_emission_type)
+
+        with st.expander("Display Mexico DataFrame"):
+            st.dataframe(mexico_df)
 
 
 if __name__ == "__main__":
