@@ -51,9 +51,6 @@ def main():
         st.dataframe(south_america_df)
 
     with north_america_tab:
-        st.subheader("North America")
-        st.write("---")
-
         # DataFrame for each country in North America.
         usa_df = df.loc[df['Country'] == 'USA']
         canada_df = df.loc[df['Country'] == 'Canada']
