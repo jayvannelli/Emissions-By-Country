@@ -1,4 +1,3 @@
-import pandas as pd
 import streamlit as st
 
 from src.data import get_data
@@ -13,6 +12,7 @@ from src.settings import (
 
 
 def main():
+    st.set_page_config("Africa", layout="centered")
     st.title("Africa")
 
     df = get_data()

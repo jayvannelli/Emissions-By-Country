@@ -12,7 +12,7 @@ from src.settings import (
 
 
 def main():
-    st.set_page_config("America", layout="centered")
+    st.set_page_config("Americas", layout="centered")
     st.title("Americas")
 
     df = get_data()
