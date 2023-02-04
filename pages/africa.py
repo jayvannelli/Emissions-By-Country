@@ -25,7 +25,6 @@ def main():
         st.subheader("North Africa")
 
         left_column, right_column = st.columns([3, 1])
-
         with left_column:
             north_africa_selection = st.selectbox("Select country", options=NORTH_AFRICA)
             north_africa_df = df.loc[df['Country'] == north_africa_selection]
@@ -42,7 +41,6 @@ def main():
         st.subheader("Western Africa")
 
         left_column, right_column = st.columns([3, 1])
-
         with left_column:
             western_africa_selection = st.selectbox("Select country", options=WESTERN_AFRICA)
             western_africa_df = df.loc[df['Country'] == western_africa_selection]
@@ -58,7 +56,6 @@ def main():
         st.subheader("Central Africa")
 
         left_column, right_column = st.columns([3, 1])
-
         with left_column:
             central_africa_selection = st.selectbox("Select country", options=CENTRAL_AFRICA)
             central_africa_df = df.loc[df['Country'] == central_africa_selection]
@@ -74,7 +71,6 @@ def main():
         st.subheader("East Africa")
 
         left_column, right_column = st.columns([3, 1])
-
         with left_column:
             east_africa_selection = st.selectbox("Select country", options=EAST_AFRICA)
             east_africa_df = df.loc[df['Country'] == east_africa_selection]
@@ -90,7 +86,6 @@ def main():
         st.subheader("Southern Africa")
 
         left_column, right_column = st.columns([3, 1])
-
         with left_column:
             southern_africa_selection = st.selectbox("Select country", options=SOUTHERN_AFRICA)
             southern_africa_df = df.loc[df['Country'] == southern_africa_selection]

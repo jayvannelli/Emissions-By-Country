@@ -25,7 +25,6 @@ def main():
         st.subheader("Central Asia")
 
         left_column, right_column = st.columns([3, 1])
-
         with left_column:
             central_asia_selection = st.selectbox("Select country", options=CENTRAL_ASIA)
             central_asia_df = df.loc[df['Country'] == central_asia_selection]
@@ -41,7 +40,6 @@ def main():
         st.subheader("East Asia")
 
         left_column, right_column = st.columns([3, 1])
-
         with left_column:
             east_asia_selection = st.selectbox("Select country", options=EAST_ASIA)
             east_asia_df = df.loc[df['Country'] == east_asia_selection]
@@ -66,7 +64,6 @@ def main():
         st.subheader("South Asia")
 
         left_column, right_column = st.columns([3, 1])
-
         with left_column:
             south_asia_selection = st.selectbox("Select country", options=SOUTH_ASIA)
             south_asia_df = df.loc[df['Country'] == south_asia_selection]
@@ -82,7 +79,6 @@ def main():
         st.subheader("Southeast Asia")
 
         left_column, right_column = st.columns([3, 1])
-
         with left_column:
             southeast_asia_selection = st.selectbox("Select country", options=SOUTHEAST_ASIA)
             southeast_asia_df = df.loc[df['Country'] == southeast_asia_selection]
@@ -98,7 +94,6 @@ def main():
         st.subheader("Western Asia")
 
         left_column, right_column = st.columns([3, 1])
-
         with left_column:
             western_asia_selection = st.selectbox("Select country", options=WESTERN_ASIA)
             western_asia_df = df.loc[df['Country'] == western_asia_selection]

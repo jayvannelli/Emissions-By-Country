@@ -78,7 +78,6 @@ def main():
         colored_header("Canada", description="", color_name="red-70")
 
         canada_left_col, canada_right_col = st.columns([3, 1])
-
         with canada_left_col:
             canada_low_year, canada_high_year = st.select_slider(label="Select time-frame",
                                                                  options=canada_df['Year'],
