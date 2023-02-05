@@ -75,6 +75,8 @@ def main():
         with st.expander("Display United States DataFrame"):
             st.dataframe(usa_df)
 
+        st.write("---")
+
         colored_header("Canada", description="", color_name="red-70")
 
         canada_left_col, canada_right_col = st.columns([3, 1])
@@ -93,6 +95,8 @@ def main():
 
         with st.expander("Display Canada DataFrame"):
             st.dataframe(canada_df)
+
+        st.write("---")
 
         colored_header("Mexico", description="", color_name="green-70")
 

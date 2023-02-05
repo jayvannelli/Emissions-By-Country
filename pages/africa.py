@@ -35,7 +35,8 @@ def main():
 
         st.bar_chart(north_africa_df, x="Year", y=north_africa_value)
 
-        st.dataframe(north_africa_df)
+        with st.expander(f"Display {north_africa_selection} DataFrame"):
+            st.dataframe(north_africa_df)
 
     with western_africa_tab:
         st.subheader("Western Africa")
@@ -50,7 +51,9 @@ def main():
                                                 key="western_africa_value_selection")
 
         st.bar_chart(western_africa_df, x="Year", y=western_africa_value)
-        st.dataframe(western_africa_df)
+
+        with st.expander(f"Display {western_africa_selection} DataFrame"):
+            st.dataframe(western_africa_df)
 
     with central_africa_tab:
         st.subheader("Central Africa")
@@ -65,7 +68,9 @@ def main():
                                                 key="central_africa_value_selection")
 
         st.bar_chart(central_africa_df, x="Year", y=central_africa_value)
-        st.dataframe(central_africa_df)
+
+        with st.expander(f"Display {central_africa_selection} DataFrame"):
+            st.dataframe(central_africa_df)
 
     with east_africa_tab:
         st.subheader("East Africa")
@@ -80,7 +85,9 @@ def main():
                                              key="east_africa_value_selection")
 
         st.bar_chart(east_africa_df, x="Year", y=east_africa_value)
-        st.dataframe(east_africa_df)
+
+        with st.expander(f"Display {east_africa_selection} DataFrame"):
+            st.dataframe(east_africa_df)
 
     with southern_africa_tab:
         st.subheader("Southern Africa")
@@ -95,7 +102,9 @@ def main():
                                                  key="southern_africa_value_selection")
 
         st.bar_chart(southern_africa_df, x="Year", y=southern_africa_value)
-        st.dataframe(southern_africa_df)
+
+        with st.expander(f"Display {southern_africa_selection} DataFrame"):
+            st.dataframe(southern_africa_df)
 
 
 if __name__ == "__main__":

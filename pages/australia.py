@@ -49,8 +49,6 @@ def main():
         else:
             st.info("Please select one, or more, value(s) to display.")
 
-    st.write("---")
-
     with st.expander("Display Australia DataFrame"):
         st.dataframe(australia_df)
 

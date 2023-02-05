@@ -6,6 +6,7 @@ from src.settings import (
     NORTHERN_EUROPE,
     SOUTHERN_EUROPE,
     WESTERN_EUROPE,
+    VALID_VALUE_SELECTIONS,
 )
 
 
@@ -39,31 +40,59 @@ def main():
             st.subheader("Cement")
             st.bar_chart(eastern_europe_df, x="Year", y="Cement")
 
-        st.dataframe(eastern_europe_df)
+        with st.expander(f"Display {eastern_europe_selection} DataFrame"):
+            st.dataframe(eastern_europe_df)
 
     with northern_europe_tab:
         st.subheader("Northern Europe")
 
-        north_europe_selection = st.selectbox("Select country", options=NORTHERN_EUROPE)
-        north_europe_df = df.loc[df['Country'] == north_europe_selection]
+        left_column, right_column = st.columns([3, 1])
+        with left_column:
+            northern_europe_selection = st.selectbox("Select country", options=NORTHERN_EUROPE)
+            northern_europe_df = df.loc[df['Country'] == northern_europe_selection]
+        with right_column:
+            northern_europe_value = st.selectbox(label="Select value to display",
+                                                 options=VALID_VALUE_SELECTIONS,
+                                                 key="northern_europe_value_selection")
 
-        st.dataframe(north_europe_df)
+        st.bar_chart(northern_europe_df, x="Year", y=northern_europe_value)
+
+        with st.expander(f"Display {northern_europe_selection} DataFrame"):
+            st.dataframe(northern_europe_df)
 
     with southern_europe_tab:
         st.subheader("Southern Europe")
 
-        south_europe_selection = st.selectbox("Select country", options=SOUTHERN_EUROPE)
-        south_europe_df = df.loc[df['Country'] == south_europe_selection]
+        left_column, right_column = st.columns([3, 1])
+        with left_column:
+            southern_europe_selection = st.selectbox("Select country", options=SOUTHERN_EUROPE)
+            southern_europe_df = df.loc[df['Country'] == southern_europe_selection]
+        with right_column:
+            southern_europe_value = st.selectbox(label="Select value to display",
+                                                 options=VALID_VALUE_SELECTIONS,
+                                                 key="southern_europe_value_selection")
 
-        st.dataframe(south_europe_df)
+        st.bar_chart(southern_europe_df, x="Year", y=southern_europe_value)
+
+        with st.expander(f"Display {southern_europe_selection} DataFrame"):
+            st.dataframe(southern_europe_df)
 
     with western_europe_tab:
         st.subheader("Western Europe")
 
-        west_europe_selection = st.selectbox("Select country", options=WESTERN_EUROPE)
-        west_europe_df = df.loc[df['Country'] == west_europe_selection]
+        left_column, right_column = st.columns([3, 1])
+        with left_column:
+            western_europe_selection = st.selectbox("Select country", options=WESTERN_EUROPE)
+            western_europe_df = df.loc[df['Country'] == western_europe_selection]
+        with right_column:
+            western_europe_value = st.selectbox(label="Select value to display",
+                                                options=VALID_VALUE_SELECTIONS,
+                                                key="western_europe_value_selection")
 
-        st.dataframe(west_europe_df)
+        st.bar_chart(western_europe_df, x="Year", y=western_europe_value)
+
+        with st.expander(f"Display {western_europe_selection} DataFrame"):
+            st.dataframe(western_europe_df)
 
 
 if __name__ == "__main__":

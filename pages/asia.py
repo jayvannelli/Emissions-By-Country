@@ -34,7 +34,9 @@ def main():
                                               key="central_asia_value_selection")
 
         st.bar_chart(central_asia_df, x="Year", y=central_asia_value)
-        st.dataframe(central_asia_df)
+
+        with st.expander(f"Display {central_asia_selection} DataFrame"):
+            st.dataframe(central_asia_df)
 
     with east_asia_tab:
         st.subheader("East Asia")
@@ -49,7 +51,9 @@ def main():
                                            key="east_asia_value_selection")
 
         st.bar_chart(east_asia_df, x="Year", y=east_asia_value)
-        st.dataframe(east_asia_df)
+
+        with st.expander(f"Display {east_asia_selection} DataFrame"):
+            st.dataframe(east_asia_df)
 
         # For multi-value purpose (will use later).
         # multi_value_selections = st.multiselect(label="Select value(s) to display:",
@@ -73,7 +77,9 @@ def main():
                                             key="south_asia_value_selection")
 
         st.bar_chart(south_asia_df, x="Year", y=south_asia_value)
-        st.dataframe(south_asia_df)
+
+        with st.expander(f"Display {south_asia_selection} DataFrame"):
+            st.dataframe(south_asia_df)
 
     with southeast_asia_tab:
         st.subheader("Southeast Asia")
@@ -88,7 +94,9 @@ def main():
                                                 key="southeast_asia_value_selection")
 
         st.bar_chart(southeast_asia_df, x="Year", y=southeast_asia_value)
-        st.dataframe(southeast_asia_df)
+
+        with st.expander(f"Display {southeast_asia_selection} DataFrame"):
+            st.dataframe(southeast_asia_df)
 
     with western_asia_tab:
         st.subheader("Western Asia")
@@ -103,7 +111,9 @@ def main():
                                               key="western_asia_value_selection")
 
         st.bar_chart(western_asia_df, x="Year", y=western_asia_value)
-        st.dataframe(western_asia_df)
+
+        with st.expander(f"Display {western_asia_selection} DataFrame"):
+            st.dataframe(western_asia_df)
 
 
 if __name__ == "__main__":
