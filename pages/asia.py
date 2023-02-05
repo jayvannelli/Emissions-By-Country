@@ -2,12 +2,13 @@ import streamlit as st
 
 from src.data import get_data
 from src.settings import (
-    VALID_VALUE_SELECTIONS,
     CENTRAL_ASIA,
     EAST_ASIA,
     SOUTH_ASIA,
     SOUTHEAST_ASIA,
     WESTERN_ASIA,
+    VALID_VALUE_SELECTIONS,
+    YEAR_DOUBLE_SELECT_SLIDER_DEFAULT,
 )
 
 
@@ -33,7 +34,15 @@ def main():
                                               options=VALID_VALUE_SELECTIONS,
                                               key="central_asia_value_selection")
 
-        st.bar_chart(central_asia_df, x="Year", y=central_asia_value)
+        low_year, high_year = st.select_slider(label="Select time-frame",
+                                               options=central_asia_df['Year'],
+                                               value=YEAR_DOUBLE_SELECT_SLIDER_DEFAULT,
+                                               key="central_asia_year_selections")
+
+        st.write("---")
+
+        central_asia_query = central_asia_df.query("Year >= @low_year and Year <= @high_year")
+        st.bar_chart(central_asia_query, x="Year", y=central_asia_value)
 
         with st.expander(f"Display {central_asia_selection} DataFrame"):
             st.dataframe(central_asia_df)
@@ -50,7 +59,15 @@ def main():
                                            options=VALID_VALUE_SELECTIONS,
                                            key="east_asia_value_selection")
 
-        st.bar_chart(east_asia_df, x="Year", y=east_asia_value)
+        low_year, high_year = st.select_slider(label="Select time-frame",
+                                               options=east_asia_df['Year'],
+                                               value=YEAR_DOUBLE_SELECT_SLIDER_DEFAULT,
+                                               key="east_asia_year_selections")
+
+        st.write("---")
+
+        east_asia_query = east_asia_df.query("Year >= @low_year and Year <= @high_year")
+        st.bar_chart(east_asia_query, x="Year", y=east_asia_value)
 
         with st.expander(f"Display {east_asia_selection} DataFrame"):
             st.dataframe(east_asia_df)
@@ -76,7 +93,15 @@ def main():
                                             options=VALID_VALUE_SELECTIONS,
                                             key="south_asia_value_selection")
 
-        st.bar_chart(south_asia_df, x="Year", y=south_asia_value)
+        low_year, high_year = st.select_slider(label="Select time-frame",
+                                               options=south_asia_df['Year'],
+                                               value=YEAR_DOUBLE_SELECT_SLIDER_DEFAULT,
+                                               key="south_asia_year_selections")
+
+        st.write("---")
+
+        south_asia_query = south_asia_df.query("Year >= @low_year and Year <= @high_year")
+        st.bar_chart(south_asia_query, x="Year", y=south_asia_value)
 
         with st.expander(f"Display {south_asia_selection} DataFrame"):
             st.dataframe(south_asia_df)
@@ -93,7 +118,15 @@ def main():
                                                 options=VALID_VALUE_SELECTIONS,
                                                 key="southeast_asia_value_selection")
 
-        st.bar_chart(southeast_asia_df, x="Year", y=southeast_asia_value)
+        low_year, high_year = st.select_slider(label="Select time-frame",
+                                               options=southeast_asia_df['Year'],
+                                               value=YEAR_DOUBLE_SELECT_SLIDER_DEFAULT,
+                                               key="southeast_asia_year_selections")
+
+        st.write("---")
+
+        southeast_asia_query = southeast_asia_df.query("Year >= @low_year and Year <= @high_year")
+        st.bar_chart(southeast_asia_query, x="Year", y=southeast_asia_value)
 
         with st.expander(f"Display {southeast_asia_selection} DataFrame"):
             st.dataframe(southeast_asia_df)
@@ -110,7 +143,15 @@ def main():
                                               options=VALID_VALUE_SELECTIONS,
                                               key="western_asia_value_selection")
 
-        st.bar_chart(western_asia_df, x="Year", y=western_asia_value)
+        low_year, high_year = st.select_slider(label="Select time-frame",
+                                               options=western_asia_df['Year'],
+                                               value=YEAR_DOUBLE_SELECT_SLIDER_DEFAULT,
+                                               key="western_asia_year_selections")
+
+        st.write("---")
+
+        western_asia_query = western_asia_df.query("Year >= @low_year and Year <= @high_year")
+        st.bar_chart(western_asia_query, x="Year", y=western_asia_value)
 
         with st.expander(f"Display {western_asia_selection} DataFrame"):
             st.dataframe(western_asia_df)

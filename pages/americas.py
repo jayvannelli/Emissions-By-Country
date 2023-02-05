@@ -3,11 +3,11 @@ import streamlit as st
 from streamlit_extras.colored_header import colored_header
 from src.data import get_data
 from src.settings import (
-    YEAR_DOUBLE_SELECT_SLIDER_DEFAULT,
-    VALID_VALUE_SELECTIONS,
     CARIBBEAN,
     CENTRAL_AMERICA,
     SOUTH_AMERICA,
+    VALID_VALUE_SELECTIONS,
+    YEAR_DOUBLE_SELECT_SLIDER_DEFAULT,
 )
 
 
@@ -23,32 +23,78 @@ def main():
 
     with caribbean_tab:
         st.subheader("Caribbean")
-        caribbean_selection = st.selectbox("Select country", options=CARIBBEAN)
 
-        caribbean_df = df.loc[df['Country'] == caribbean_selection]
-        st.bar_chart(data=caribbean_df, x="Year", y="Total")
+        left_column, right_column = st.columns([3, 1])
+        with left_column:
+            caribbean_selection = st.selectbox("Select country", options=CARIBBEAN)
+            caribbean_df = df.loc[df['Country'] == caribbean_selection]
+        with right_column:
+            caribbean_value = st.selectbox(label="Select value to display",
+                                           options=VALID_VALUE_SELECTIONS,
+                                           key="caribbean_value_selection")
 
-        caribbean_multiple_selections = st.multiselect(label="Select countries",
-                                                       options=CARIBBEAN,
-                                                       default=CARIBBEAN[:5])
+        low_year, high_year = st.select_slider(label="Select time-frame",
+                                               options=caribbean_df['Year'],
+                                               value=YEAR_DOUBLE_SELECT_SLIDER_DEFAULT,
+                                               key="caribbean_year_selections")
 
-        if len(caribbean_multiple_selections) >= 1:
-            caribbean_query = df.query('Country == @caribbean_multiple_selections')
-            st.dataframe(caribbean_query)
+        st.write("---")
+
+        caribbean_query = caribbean_df.query("Year >= @low_year and Year <= @high_year")
+        st.bar_chart(caribbean_query, x="Year", y=caribbean_value)
+
+        with st.expander(f"Display {caribbean_selection} DataFrame"):
+            st.dataframe(caribbean_df)
 
     with central_america_tab:
         st.subheader("Central America")
-        central_america_selection = st.selectbox("Select country", options=CENTRAL_AMERICA)
 
-        central_america_df = df.loc[df['Country'] == central_america_selection]
-        st.dataframe(central_america_df)
+        left_column, right_column = st.columns([3, 1])
+        with left_column:
+            central_america_selection = st.selectbox("Select country", options=CENTRAL_AMERICA)
+            central_america_df = df.loc[df['Country'] == central_america_selection]
+        with right_column:
+            central_america_value = st.selectbox(label="Select value to display",
+                                                 options=VALID_VALUE_SELECTIONS,
+                                                 key="central_america_value_selection")
+
+        low_year, high_year = st.select_slider(label="Select time-frame",
+                                               options=central_america_df['Year'],
+                                               value=YEAR_DOUBLE_SELECT_SLIDER_DEFAULT,
+                                               key="central_america_year_selections")
+
+        st.write("---")
+
+        central_america_query = central_america_df.query("Year >= @low_year and Year <= @high_year")
+        st.bar_chart(central_america_query, x="Year", y=central_america_value)
+
+        with st.expander(f"Display {central_america_selection} DataFrame"):
+            st.dataframe(central_america_df)
 
     with south_america_tab:
         st.subheader("South America")
-        south_america_selection = st.selectbox("Select country", options=SOUTH_AMERICA)
 
-        south_america_df = df.loc[df['Country'] == south_america_selection]
-        st.dataframe(south_america_df)
+        left_column, right_column = st.columns([3, 1])
+        with left_column:
+            south_america_selection = st.selectbox("Select country", options=SOUTH_AMERICA)
+            south_america_df = df.loc[df['Country'] == south_america_selection]
+        with right_column:
+            south_america_value = st.selectbox(label="Select value to display",
+                                               options=VALID_VALUE_SELECTIONS,
+                                               key="south_america_value_selection")
+
+        low_year, high_year = st.select_slider(label="Select time-frame",
+                                               options=south_america_df['Year'],
+                                               value=YEAR_DOUBLE_SELECT_SLIDER_DEFAULT,
+                                               key="south_america_year_selections")
+
+        st.write("---")
+
+        south_america_query = south_america_df.query("Year >= @low_year and Year <= @high_year")
+        st.bar_chart(south_america_query, x="Year", y=south_america_value)
+
+        with st.expander(f"Display {south_america_selection} DataFrame"):
+            st.dataframe(south_america_df)
 
     with north_america_tab:
         # DataFrame for each country in North America.
