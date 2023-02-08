@@ -2,6 +2,7 @@ import streamlit as st
 
 
 def main():
+    st.set_page_config("Emissions by Country 2002-2022", page_icon="⛽")
     st.title("Emissions by Country | 2002-2022")
     st.info("Note: A blank chart means there is no available data for that country & emission type.")
 
